@@ -100,8 +100,17 @@ main {
 .techstack {
   width: 100%;
   position: relative;
-  height: var(--vh);
+  height: clamp(800px, 100vh, 1200px);
   margin: 50px auto -100px;
+}
+
+.tech-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .techstack h2 {
@@ -113,6 +122,8 @@ main {
   left: 0;
   font-weight: 400;
   text-transform: uppercase;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Desktop Enhancements */
