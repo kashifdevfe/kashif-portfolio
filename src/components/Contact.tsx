@@ -1,59 +1,60 @@
-import { MdArrowOutward, MdCopyright } from "react-icons/md";
-import "./styles/Contact.css";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 
-const Contact = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+export const Contact = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    gsap.fromTo(
+      el.children,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 80%',
+        }
+      }
+    );
+  }, []);
+
   return (
-    <div className="contact-section section-container" id="contact">
-      <div className="contact-container">
-        <h3>Contact</h3>
-        <div className="contact-flex">
-          <div className="contact-box">
-            <h4>Email</h4>
-            <p>
-              <a href="mailto:kashif.devfe@gmail.com" data-cursor="disable">
-                kashif.devfe@gmail.com
-              </a>
-            </p>
-            <h4>Phone</h4>
-            <p>
-              <a href="tel:+923139782712" data-cursor="disable">
-                +92 313 9782712
-              </a>
-            </p>
-          </div>
-          <div className="contact-box">
-            <h4>Social</h4>
-            <a
-              href="https://github.com/kashifdevfe"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Github <MdArrowOutward />
-            </a>
-            <a
-              href="https://linkedin.com/in/kashifse"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Linkedin <MdArrowOutward />
-            </a>
-          </div>
-          <div className="contact-box">
-            <h2>
-              Designed and Developed <br /> by <span>Kashif Muhammad</span>
-            </h2>
-            <h5>
-              <MdCopyright /> 2025
-            </h5>
-          </div>
-        </div>
+    <footer ref={sectionRef} className="container" id="contact" style={{ padding: '15vh 5vw 5vh 5vw', textAlign: 'center' }}>
+      <h2 className="text-huge" style={{ marginBottom: '2rem' }}>Let's Talk</h2>
+      <p className="text-body" style={{ marginBottom: '4rem', maxWidth: '600px', margin: '0 auto 4rem auto' }}>
+        Currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+      </p>
+      
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '4rem' }}>
+        <a href="mailto:kashif.devfe@gmail.com" className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <FaEnvelope size={24} />
+          <span>Email</span>
+        </a>
+        <a href="https://linkedin.com/in/kashifse" target="_blank" rel="noreferrer" className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <FaLinkedin size={24} />
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/kashifdevfe" target="_blank" rel="noreferrer" className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <FaGithub size={24} />
+          <span>GitHub</span>
+        </a>
       </div>
-    </div>
+
+      <div style={{ borderTop: '1px solid #222', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
+        <p className="text-small">© {new Date().getFullYear()} Kashif Muhammad.</p>
+        <p className="text-small">Based in Islamabad, Pakistan.</p>
+      </div>
+    </footer>
   );
 };
-
-export default Contact;
