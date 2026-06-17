@@ -31,12 +31,7 @@ export const About = () => {
 
   return (
     <section ref={sectionRef} className="container section-padding" id="about">
-      <div ref={textRef} style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'minmax(280px, 1fr) 2fr', 
-        gap: '4rem', 
-        alignItems: 'start' 
-      }}>
+      <div ref={textRef} className="about-grid">
         
         {/* Left Column: Portrait Image */}
         <div style={{
@@ -70,7 +65,7 @@ export const About = () => {
         </div>
 
         {/* Right Column: About details, Skills & Education */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '3rem' }}>
+        <div className="about-details-grid">
           
           {/* Bio Summary */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

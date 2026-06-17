@@ -90,13 +90,7 @@ export const Experience = () => {
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         {expData.map((job, idx) => (
-          <div key={idx} className="exp-item interactive" style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 3fr',
-            gap: '2rem',
-            borderTop: '1px solid #222',
-            paddingTop: '2rem'
-          }}>
+          <div key={idx} className="exp-item interactive experience-grid">
             <div>
               <p className="text-small">{job.date}</p>
             </div>

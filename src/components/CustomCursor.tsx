@@ -5,6 +5,10 @@ export const CustomCursor = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Check if it's a touch device / coarse pointer
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    if (isTouch) return;
+
     const cursor = cursorRef.current;
     if (!cursor) return;
 

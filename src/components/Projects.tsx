@@ -85,7 +85,7 @@ export const Projects = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: '2.5rem',
       }}>
         {projectsData.map((project, idx) => (

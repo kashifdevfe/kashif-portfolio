@@ -36,7 +36,7 @@ export const Contact = () => {
         Currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
       </p>
       
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginBottom: '4rem' }}>
+      <div className="contact-links">
         <a href="mailto:kashif.devfe@gmail.com" className="interactive" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <FaEnvelope size={24} />
           <span>Email</span>
@@ -51,7 +51,7 @@ export const Contact = () => {
         </a>
       </div>
 
-      <div style={{ borderTop: '1px solid #222', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between' }}>
+      <div className="contact-footer">
         <p className="text-small">© {new Date().getFullYear()} Kashif Muhammad.</p>
         <p className="text-small">Based in Islamabad, Pakistan.</p>
       </div>

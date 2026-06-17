@@ -52,7 +52,7 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div style={{ position: 'absolute', bottom: '5%', left: '5vw' }}>
+      <div className="scroll-cue">
         <p className="text-small">SCROLL TO EXPLORE</p>
       </div>
     </section>
